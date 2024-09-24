@@ -1,0 +1,16 @@
+name: call-packer-build
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  call-packer-build-workflow:
+    uses: ./.github/workflows/called_workflow_2.yml
+    with:
+      packer_version: '1.8.5'
+      build_name: 'PocBuild'
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
